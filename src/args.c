@@ -1,7 +1,7 @@
 #include <string.h>
 
 #include "args.h"
-#include "commands.h"
+#include "comm.h"
 
 extern commands comm[];
 extern int c_num;

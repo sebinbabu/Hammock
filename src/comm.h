@@ -1,5 +1,5 @@
-#ifndef COMMANDS_H
-#define COMMANDS_H
+#ifndef COMM_H
+#define COMM_H
 
 typedef struct COMMANDS {
 	char com[7];

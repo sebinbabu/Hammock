@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "commands.h"
+#include "comm.h"
 #include "init.h"
 
 const commands comm[] = {
