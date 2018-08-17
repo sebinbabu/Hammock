@@ -31,7 +31,6 @@ int help(char *s) {
 	return 0;
 }
 
-
 int init(char *s) {
 	if(s != NULL) {
 		fprintf(stderr, "hammock: invalid option(s)\n");
