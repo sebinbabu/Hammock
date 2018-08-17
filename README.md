@@ -2,7 +2,7 @@
 
 A fast and nifty crawler.
 
-![Hammock](https://raw.githubusercontent.com/sebinbabu/Hammock/master/image.png)
+![Hammock](https://raw.githubusercontent.com/sebinbabu/Hammock/master/web-crawler.png)
 
 
 ### Prerequisites
