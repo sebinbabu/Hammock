@@ -1,20 +1,22 @@
 #include <stdio.h>
 
 #include "commands.h"
+#include "init.h"
 
-commands comm[] = {
+const commands comm[] = {
 	{"help", help},
 	{"init", init},
 	{"start", start},
-	{"clean", clean},
 	{"add", add},
 	{"depth", depth}
 };
 
+const int c_num = sizeof(comm)/sizeof(commands);
+
 int help(char *s) {
 	if(s != NULL) {
-		fprintf(stderr, "hammock: invalid option(s)\n");
-		fprintf(stderr, "Try 'hammock help' for more information.\n");
+		fprintf(stderr, "hammock: invalid option(s)\n"\
+						"Try 'hammock help' for more information.\n");
 		return 1;
 	}
 	fprintf(stdout, "\nUsage:\n"\
@@ -31,27 +33,7 @@ int help(char *s) {
 	return 0;
 }
 
-int init(char *s) {
-	if(s != NULL) {
-		fprintf(stderr, "hammock: invalid option(s)\n");
-		fprintf(stderr, "Try 'hammock help' for more information.\n");
-		return 1;
-	}
-	fprintf(stdout, "Welcome to hammock!\n");
-	return 0;
-}
-
 int start(char *s) {
-	if(s != NULL) {
-		fprintf(stderr, "hammock: invalid option(s)\n");
-		fprintf(stderr, "Try 'hammock help' for more information.\n");
-		return 1;
-	}
-	fprintf(stdout, "Welcome to hammock!\n");
-	return 0;
-}
-
-int clean(char *s) {
 	if(s != NULL) {
 		fprintf(stderr, "hammock: invalid option(s)\n");
 		fprintf(stderr, "Try 'hammock help' for more information.\n");
