@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 git clone https://github.com/sebinbabu/Hammock.git
 cd Hammock
 make
-make install
+sudo make install
 ```
 ## Usage
 
