@@ -27,7 +27,6 @@ int help(char *s) {
 					"Crawl and download pages from the web.\n\n"
 					"Options:\n"\
 					" add\tadd a URL to the crawl queue\n"\
-					" clean\tclean the working directory\n"
 					" depth\tset the crawl depth\n"\
 					" help\tdisplay this help\n"\
 					" init\tinitialize the working directory for use\n"\
