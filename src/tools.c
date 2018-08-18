@@ -1,4 +1,8 @@
 #include "tools.h"
+#include "re.h"
+
+const char* url_re = "^https?://[^/\\n]+{/[^\\\\/%\\n]+}*{/?\\?[^&\\n]+{&[^&\\n]+}*}?/?$";
+const char* mul_url_re = "^https?://[^/\\n]+{/[^\\\\/%\\n]+}*{/?\\?[^&\\n]+{&[^&\\n]+}*}?/?$";
 
 int parse_int(char *s) {
 	char *p = s;
@@ -13,4 +17,8 @@ int parse_int(char *s) {
 		p++;
 	}
 	return n;
+}
+
+int check_url(char *s) {
+	return re_match(url_re, s) == -1;
 }

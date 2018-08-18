@@ -58,13 +58,17 @@ int read_file(const char *p, char **s) {
 int write_file(const char *p, const char *s) {
 	int ret = 0;
 	FILE *f = fopen(p, "w");
-	if(f == NULL) {
+	if(f == NULL || fputs(s, f) < 0)
 		ret = 1;
-	} else {
-		if(fputs(s, f) < 0)
-			ret = 1;
-	}
 	fclose(f);
+    return ret;
+}
 
+int update_file(const char *p, const char *s) {
+	int ret = 0;
+	FILE *f = fopen(p, "a");
+	if(f == NULL || fputs(s, f) < 0 || fputc('\n', f) == EOF)
+		ret = 1;
+	fclose(f);
     return ret;
 }

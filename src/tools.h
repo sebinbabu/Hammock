@@ -2,5 +2,6 @@
 #define TOOLS_H
 
 int parse_int(char *s);
+int check_url(char *s);
 
 #endif

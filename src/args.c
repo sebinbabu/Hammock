@@ -3,9 +3,6 @@
 #include "args.h"
 #include "comm.h"
 
-extern commands comm[];
-extern int c_num;
-
 int process_args(char **v, int c) {
 	int i, j, n = c_num, status = -1;
 	for(i = 1; i < c; i += 2) {

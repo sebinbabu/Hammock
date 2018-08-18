@@ -12,4 +12,7 @@ int start(char *s);
 int add(char *s);
 int depth(char *s);
 
+extern const commands comm[];
+extern const int c_num;
+
 #endif
