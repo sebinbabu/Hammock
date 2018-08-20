@@ -7,6 +7,12 @@
 
 #include "file.h"
 
+const char filelist[4][20] = {
+	".hammock/depth",
+	".hammock/queue",
+	".hammock/links",
+	".hammock/seed"
+};
 
 char* get_dir(char *p, int n) {
 	return getcwd(p, n);
