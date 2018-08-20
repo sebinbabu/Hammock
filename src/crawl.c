@@ -29,7 +29,7 @@ int load_queue(queue *q) {
     	free(urls);
 	}
 	return ret;
-}
+} 
 
 int crawl(char *s) {
 	int ret = 0;
