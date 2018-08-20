@@ -27,7 +27,7 @@ Use the ```hammock help``` command to get instructions.
 ## Authors / Credits
 
 * **Sebin Babu** - *Initial work* - [Sebin Babu](https://github.com/sebinbabu)
-* **Michael Kowalczyk** - *Work on HTML Stream Parser* = [htmlstreamparser](https://code.google.com/archive/p/htmlstreamparser/)
+* **Michael Kowalczyk** - *Work on htmlstreamparser* - [htmlstreamparser](https://code.google.com/archive/p/htmlstreamparser/)
 
 ## License
 
