@@ -11,6 +11,7 @@ int init(char *s);
 int start(char *s);
 int add(char *s);
 int depth(char *s);
+int seeds(char *s);
 
 extern const commands comm[];
 extern const int c_num;

@@ -22,11 +22,12 @@ sudo make install
 ```
 ## Usage
 
-Use the hammock help command to get instructions.
+Use the ```hammock help``` command to get instructions.
 
-## Authors
+## Authors / Credits
 
 * **Sebin Babu** - *Initial work* - [Sebin Babu](https://github.com/sebinbabu)
+* **Michael Kowalczyk** - *Work on HTML Stream Parser* = [htmlstreamparser](https://code.google.com/archive/p/htmlstreamparser/)
 
 ## License
 

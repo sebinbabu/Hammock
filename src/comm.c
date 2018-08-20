@@ -11,7 +11,8 @@ const commands comm[] = {
 	{"init", init},
 	{"start", start},
 	{"add", add},
-	{"depth", depth}
+	{"depth", depth},
+	{"seeds", seeds}
 };
 
 const int c_num = sizeof(comm)/sizeof(commands);
@@ -79,6 +80,23 @@ int depth(char *s) {
 	} else {
 		fprintf(stdout, "crawl depth: %s\n", p);
 		free(p);
+	}
+	return ret;
+}
+
+int seeds(char *s) {
+	int ret = 0;
+	if(s != NULL) {
+		ret = -1;
+	} else {
+		char *p = NULL;
+
+		if(read_file(filelist[SEED], &p) != 0) {
+			perror("hammock");
+			ret = 1;
+		} else {
+			fprintf(stdout, "crawl seeds:\n%s", p);
+		}
 	}
 	return ret;
 }
