@@ -8,7 +8,7 @@ typedef struct COMMANDS {
 
 int help(char *s);
 int init(char *s);
-int start(char *s);
+int crawl(char *s);
 int add(char *s);
 int depth(char *s);
 int seeds(char *s);

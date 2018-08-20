@@ -9,7 +9,7 @@
 const commands comm[] = {
 	{"help", help},
 	{"init", init},
-	{"start", start},
+	{"crawl", crawl},
 	{"add", add},
 	{"depth", depth},
 	{"seeds", seeds}
@@ -31,7 +31,7 @@ int help(char *s) {
 					" depth\tset the crawl depth\n"\
 					" help\tdisplay this help\n"\
 					" init\tinitialize the working directory for use\n"\
-					" start\tstart crawling the queue\n"\
+					" crawl\tstart crawling the queue\n"\
 					" seeds\tdisplay the list of seed links\n"\
 	);
 	return 0;

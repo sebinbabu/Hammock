@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <string.h>
 
-#include "start.h"
+#include "crawl.h"
 #include "file.h"
 #include "tools.h"
 #include "queue.h"
@@ -31,7 +31,7 @@ int load_queue(queue *q) {
 	return ret;
 }
 
-int start(char *s) {
+int crawl(char *s) {
 	int ret = 0;
 	queue q;
 	if(load_queue(&q) != 0) {

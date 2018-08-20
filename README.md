@@ -24,6 +24,14 @@ sudo make install
 
 Use the ```hammock help``` command to get instructions.
 
+#### Example usage
+
+* ```hammock init``` : initializes the current working directory as a Hammock directory
+* ```hammock depth 5``` : sets the crawl depth of the crawler to 5 levels of recursion
+* ```hammock add http:///www.google.com/``` : adds Google's homepage to the crawl queue
+* ```hammock add http://github.com/``` : adds Github's homepage to the crawl queue
+* ```hammock crawl``` : starts the crawler on the queue
+
 ## Authors / Credits
 
 * **Sebin Babu** - *Initial work* - [Sebin Babu](https://github.com/sebinbabu)
