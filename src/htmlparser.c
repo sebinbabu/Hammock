@@ -173,7 +173,15 @@ void html_parser_char_parse(HTMLSTREAMPARSER *hsp, const char c) {
 			else *s = 13;
 			break;
 	}
-	if (*s == 2 || *s == 13) if (*l >= 0 && *l < 6) if (script[*l] == tolower(c)) (*l)++; else *l = -1; else *l = -1;
+	if (*s == 2 || *s == 13) {
+		if (*l >= 0 && *l < 6) {
+			if (script[(int) *l] == tolower(c))
+				(*l)++;
+			else
+				*l = -1;
+		} else
+			*l = -1;
+	}
 
 	if (h[HTML_INNER_TEXT]) {
 		if (h[HTML_INNER_TEXT_BEGINNING]) { hsp->inner_text_len = 0; hsp->inner_text_real_len = 0; }
@@ -184,24 +192,33 @@ void html_parser_char_parse(HTMLSTREAMPARSER *hsp, const char c) {
 			hsp->tag_name_len = 0; hsp->attr_name_len = 0; hsp->attr_value_len = 0;
 			hsp->tag_name_real_len = 0; hsp->attr_name_real_len = 0; hsp->attr_value_real_len = 0;
 		}
-		if (hsp->tag_name_len < hsp->tag_name_max_len)
-			if (hsp->tag_name_to_lower) hsp->tag_name[hsp->tag_name_len++] = tolower(c);
-			else hsp->tag_name[hsp->tag_name_len++] = c;
+		if (hsp->tag_name_len < hsp->tag_name_max_len) {
+			if (hsp->tag_name_to_lower)
+				hsp->tag_name[hsp->tag_name_len++] = tolower(c);
+			else
+				hsp->tag_name[hsp->tag_name_len++] = c;
+		}
 		hsp->tag_name_real_len++;
 	} else if (h[HTML_ATTRIBUTE]) {
 		if (h[HTML_ATTRIBUTE_BEGINNING]) {
 			hsp->attr_name_len = 0; hsp->attr_value_len = 0;
 			hsp->attr_name_real_len = 0; hsp->attr_value_real_len = 0;
 		}
-		if (hsp->attr_name_len < hsp->attr_name_max_len)
-			if (hsp->attr_name_to_lower) hsp->attr_name[hsp->attr_name_len++] = tolower(c);
-			else hsp->attr_name[hsp->attr_name_len++] = c;
+		if (hsp->attr_name_len < hsp->attr_name_max_len) {
+			if (hsp->attr_name_to_lower)
+				hsp->attr_name[hsp->attr_name_len++] = tolower(c);
+			else
+				hsp->attr_name[hsp->attr_name_len++] = c;
+		}
 		hsp->attr_name_real_len++;
 	} else if (h[HTML_VALUE]) {
 		if (h[HTML_VALUE_BEGINNING]) { hsp->attr_value_len = 0; hsp->attr_value_real_len = 0; }
-		if (hsp->attr_value_len < hsp->attr_value_max_len)
-			if (hsp->attr_val_to_lower) hsp->attr_value[hsp->attr_value_len++] = tolower(c);
-			else hsp->attr_value[hsp->attr_value_len++] = c;
+		if (hsp->attr_value_len < hsp->attr_value_max_len) {
+			if (hsp->attr_val_to_lower)
+				hsp->attr_value[hsp->attr_value_len++] = tolower(c);
+			else
+				hsp->attr_value[hsp->attr_value_len++] = c;
+		}
 		hsp->attr_value_real_len++;
 	}
 }

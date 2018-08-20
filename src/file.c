@@ -31,7 +31,7 @@ int read_file(const char *p, char **s) {
 	struct stat st = {0};
 	int ret = 0;
 
-    if(stat(p, &st)) {
+    if(stat(p, &st) != 0) {
     	ret = 1;
     } else if(st.st_size < 1) {
     	buffer = malloc(sizeof(char));
@@ -57,10 +57,11 @@ int read_file(const char *p, char **s) {
 
 int write_file(const char *p, const char *s) {
 	int ret = 0;
-	FILE *f = fopen(p, "w");
+	FILE *f = fopen(p, "w+");
 	if(f == NULL || fputs(s, f) < 0)
 		ret = 1;
-	fclose(f);
+	else
+		fclose(f);
     return ret;
 }
 
@@ -69,6 +70,7 @@ int update_file(const char *p, const char *s) {
 	FILE *f = fopen(p, "a");
 	if(f == NULL || fputs(s, f) < 0 || fputc('\n', f) == EOF)
 		ret = 1;
-	fclose(f);
+	else
+		fclose(f);
     return ret;
 }

@@ -2,6 +2,7 @@
 
 #include "init.h"
 #include "file.h"
+#include "comm.h"
 
 const char filelist[][20] = {
 	".hammock/depth",
@@ -36,8 +37,10 @@ int init(char *s) {
 						break;
 					}
 				}
-				if(i >= filelist_num) {
+				if(ret == 0 && depth("5") == 0) {
 					fprintf(stdout, "Initialized empty Hammock directory in %s\n", p);
+				} else {
+					ret = 1;
 				}
 			}
 		}

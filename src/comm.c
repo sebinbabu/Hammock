@@ -32,6 +32,7 @@ int help(char *s) {
 					" help\tdisplay this help\n"\
 					" init\tinitialize the working directory for use\n"\
 					" start\tstart crawling the queue\n"\
+					" seeds\tdisplay the list of seed links\n"\
 	);
 	return 0;
 }
@@ -72,14 +73,15 @@ int depth(char *s) {
 			}
 		}
 	}
-
-	char *p = NULL;
-	if(read_file(filelist[DEPTH], &p) != 0) {
-		perror("hammock");
-		ret = 1;
-	} else {
-		fprintf(stdout, "crawl depth: %s\n", p);
-		free(p);
+	if(ret == 0) {
+		char *p = NULL;
+		if(read_file(filelist[DEPTH], &p) != 0) {
+			perror("hammock");
+			ret = 1;
+		} else {
+			fprintf(stdout, "crawl depth: %s\n", p);
+			free(p);
+		}
 	}
 	return ret;
 }
