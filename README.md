@@ -1,6 +1,6 @@
 # Hammock
 
-A fast and nifty crawler.
+A fast and nifty little crawler.
 
 ![Hammock](https://raw.githubusercontent.com/sebinbabu/Hammock/master/web-crawler.jpg)
 
