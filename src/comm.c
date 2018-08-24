@@ -4,6 +4,7 @@
 #include "comm.h"
 #include "init.h"
 #include "file.h"
+#include "uritools.h"
 #include "tools.h"
 
 const commands comm[] = {
@@ -12,7 +13,8 @@ const commands comm[] = {
 	{"crawl", crawl},
 	{"add", add},
 	{"depth", depth},
-	{"seeds", seeds}
+	{"seeds", seeds},
+	{"remove", uninit}
 };
 
 const int c_num = sizeof(comm)/sizeof(commands);
@@ -39,7 +41,7 @@ int help(char *s) {
 
 int add(char *s) {
 	int ret = 0;
-	if(s == NULL || check_url(s) != 0) {
+	if(s == NULL || uri_check(s) != 0) {
 		ret = -1;
 	} else {
 		char *p = NULL;
@@ -102,3 +104,4 @@ int seeds(char *s) {
 	}
 	return ret;
 }
+

@@ -18,7 +18,7 @@ int init(char *s) {
 			perror("hammock");
 			ret = 1;
 		} else {
-			if(create_dir(".hammock") != 0) {
+			if(create_dir(app_dir) != 0) {
 				perror("hammock");
 				ret = 1;
 			} else {
@@ -36,6 +36,17 @@ int init(char *s) {
 				}
 			}
 		}
+	}
+	return ret;
+}
+
+int uninit(char *s) {
+	int ret = 0;
+	if(s != NULL && change_dir(s) != 0) {
+			perror("hammock");
+			ret = 1;
+	} else {
+		
 	}
 	return ret;
 }

@@ -2,7 +2,6 @@
 #include <malloc.h>
 
 #include "tools.h"
-#include "re.h"
 #include "parser.h"
 #include "remote.h"
 
@@ -29,10 +28,6 @@ int parse_int(char *s) {
 		p++;
 	}
 	return n;
-}
-
-int check_url(char *s) {
-	return 0;
 }
 
 int print_urls(char *s) {

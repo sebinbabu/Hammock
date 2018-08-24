@@ -70,7 +70,7 @@ int uri_parse(uri *u, char *s)
 	}
 
 	memset(u, 0, sizeof (uri));
-
+	u->uri_str = s;
 	u->fragment = find_fragment(s);
 	u->query = find_query(s);
 
@@ -117,9 +117,10 @@ int uri_parse(uri *u, char *s)
 			}
 
 			if (u->path) {
-				u->port = natoi(s, u->path - s - 1);
+				*(u->path - 1) = '\0';
+				u->port = s;
 			} else {
-				u->port = atoi(s);
+				u->port = s;
 			}
 		}
 
@@ -154,4 +155,39 @@ int uri_path_split(char *buf, char **resume)
 
 void uri_free(uri *u) {
 	free(u->uri_str);
+}
+
+char* uri_reconstruct(uri *u) {
+	char *it = u->fragment;
+	if(it != NULL) *(it - 1) = '#';
+	it = u->query;
+	if(it != NULL) *(it - 1) = '?';
+	it = u->path;
+	if(it != NULL) *(it - 1) = '/';
+	
+	it = u->scheme;
+	if(it != NULL) {
+		while(*it != '\0') it++;
+		*it = ':';
+		*++it = '/';
+		*++it = '/';
+	}
+	if(u->password != NULL) {
+		*(u->password - 1) = ':';
+		*(u->host - 1) = '@';
+	}
+	if(u->port != 0) {
+		*(u->port - 1) = ':';
+	}
+	return u->uri_str;
+}
+
+int uri_check(char *s) {
+	int ret = 0;
+	uri u;
+	if (uri_parse(&u, s) == -1)
+		ret = 1;
+	else
+		uri_reconstruct(&u);
+	return ret;
 }

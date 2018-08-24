@@ -6,7 +6,7 @@ typedef struct URI {
 	char *username;
 	char *password;
 	char *host;
-	int port;
+	char *port;
 	char *path;
 	char *query;
 	char *fragment;
@@ -16,5 +16,6 @@ typedef struct URI {
 extern int uri_parse(uri *u, char *uri_str);
 extern int uri_path_split(char *buf, char **resume);
 extern void uri_free(uri *u);
-
+extern char* uri_reconstruct(uri *u);
+extern int uri_check(char *s);
 #endif

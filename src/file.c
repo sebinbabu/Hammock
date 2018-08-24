@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <malloc.h>
+#include <ftw.h>
 
 #include "file.h"
 
@@ -30,6 +31,10 @@ int create_dir(const char *p) {
 int create_file(const char *p) {
 	struct stat st = {0};
 	return stat(p, &st) == -1 && creat(p, 0666) == -1;
+}
+
+int remove_file(const char *p) {
+	return unlink(p) == -1;
 }
 
 int read_file(const char *p, char **s) {
